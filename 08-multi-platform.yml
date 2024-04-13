@@ -8,54 +8,54 @@
     dnf: 
       name: httpd
       state: present
-    when: ansible-distribution == "Amazon" 
+    when: ansible_distribution == "Amazon" 
 
   - name: Start Httpd
     service: 
       name: httpd
       state: started
-    when: ansible-distribution == "Amazon"  
+    when: ansible_distribution == "Amazon"  
   
   - name: Enable Httpd
     service: 
       name: httpd
       enabled: yes
-    when: ansible-distribution == "Amazon"
+    when: ansible_distribution == "Amazon"
 
   - name: Install Apache2
     apt: 
       name: apache2
       state: present
-    when: ansible-distribution == "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
 
   - name: Start apache2
     service: 
       name: apache2
       state: started
-    when: ansible-distribution == "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
   
   - name: Enable Apache2
     service: 
       name: apache2
       enabled: yes
-    when: ansible-distribution == "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
 
   - name: Install HTTPD
     yum: 
       name: httpd
       state: present
-    when: ansible-distribution == "CentOS" 
+    when: ansible_distribution == "CentOS" 
 
   - name: Start Httpd
     service: 
       name: httpd
       state: started
-    when: ansible-distribution == "CentOS"  
+    when: ansible_distribution == "CentOS"  
   
   - name: Enable Httpd
     service: 
       name: httpd
       enabled: yes
-    when: ansible-distribution == "CentOS"
+    when: ansible_distribution == "CentOS"
  
 ...
