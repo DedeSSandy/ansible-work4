@@ -40,8 +40,8 @@
       enabled: yes
     when: ansible-distribution == "ubuntu"
 
-   - name: Install HTTPD
-     yum: 
+  - name: Install HTTPD
+    yum: 
       name: httpd
       state: present
     when: ansible-distribution == "amazon" 
