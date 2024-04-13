@@ -41,7 +41,7 @@
     when: ansible-distribution == "ubuntu"
 
    - name: Install HTTPD
-    yum: 
+     yum: 
       name: httpd
       state: present
     when: ansible-distribution == "amazon" 
