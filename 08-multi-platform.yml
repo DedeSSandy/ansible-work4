@@ -1,0 +1,61 @@
+---
+- name: Install Http Server
+  hosts: g1
+  become: yes
+
+  tasks:
+  - name: Install HTTPD
+    dnf: 
+      name: httpd
+      state: present
+    when: ansible-distribution == "amazon" 
+
+  - name: Start Httpd
+    service: 
+      name: httpd
+      state: started
+    when: ansible-distribution == "amazon"  
+  
+  - name: Enable Httpd
+    service: 
+      name: httpd
+      enabled: yes
+    when: ansible-distribution == "amazon"
+
+  - name: Install Apache2
+    apt: 
+      name: apache2
+      state: present
+    when: ansible-distribution == "ubuntu"
+
+  - name: Start apache2
+    service: 
+      name: apache2
+      state: started
+    when: ansible-distribution == "ubuntu"
+  
+  - name: Enable Apache2
+    service: 
+      name: apache2
+      enabled: yes
+    when: ansible-distribution == "ubuntu"
+
+   - name: Install HTTPD
+    yum: 
+      name: httpd
+      state: present
+    when: ansible-distribution == "amazon" 
+
+  - name: Start Httpd
+    service: 
+      name: httpd
+      state: started
+    when: ansible-distribution == "amazon"  
+  
+  - name: Enable Httpd
+    service: 
+      name: httpd
+      enabled: yes
+    when: ansible-distribution == "amazon"
+ 
+...
